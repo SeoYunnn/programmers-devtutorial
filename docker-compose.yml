@@ -1,0 +1,17 @@
+version: '3'
+services:
+  mariadb:
+    image: mariadb:10
+    ports:
+      - "13306:3306"
+    container_name: devtutorial_mariadb
+    volumes:
+      - ./db/conf.d:/etc/mysql/conf.d
+      - ./db/data:/var/lib/mysql
+      - ./db/initdb.d:/docker-entrypoint-initdb.d
+    environment:
+      TZ: Asia/Seoul
+      MARIADB_USER: "${DB_USER}"
+      MARIADB_PASSWORD: "${DB_PASSWORD}"
+      MARIADB_ROOT_PASSWORD: "${DB_PASSWORD}"
+      MARIADB_DATABASE: "${DB_NAME}"
