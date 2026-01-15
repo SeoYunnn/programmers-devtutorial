@@ -1,64 +1,127 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title> Main </title>
-        <style>
-            h1 {
-                text-align: center;
-            }
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tennis Market - Main</title>
+    <style>
+        /* 기본 폰트 및 여백 설정 */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #fcfcfc;
+            color: #333;
+        }
 
-            #txt_welcome {
-                text-align: center; 
-                margin-bottom: 50px;
-            }
+        h1 {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 2.5em;
+            color: #2c3e50;
+        }
 
-            .card {
-                text-align: center;
-            }
+        /* 웰컴 섹션 */
+        #txt_welcome {
+            text-align: center;
+            margin-bottom: 60px;
+            line-height: 1.6;
+        }
 
-            .card_title {
-                font-size: 20px;
-            }
+        #txt_welcome a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-            .card_button {
-                font-size: 25px;
-                width: 150px;
-                height: 30px;
-            }
+        #txt_welcome a:hover {
+            text-decoration: underline;
+        }
 
-            .card_img {
-                width: 300px;
-                height: 300px;
-            }
-        </style>
-    </head>
-    <body>
-        <h1>Tennis market</h1>
-        <div id="txt_welcome">
-            Welcome to Tennis market! <br>
-            Enjoy your shopping.
-            <br>
-            <br>
-            <a href="./orderlist"> order list </a>
-        </div>
-        <div style="display:grid; grid-template-columns: 1fr 1fr 1fr;">
-            <div class="card">
-                <img class="card_img" src="./img/redRacket.png">
-                <p class="card_title"> Red Racket </p>
-                <input class="card_button" type="button" value="order" 
-                    onclick="location.href='/order?productId=1'">
-            </div>
-            <div class="card">
-                <img class="card_img" src="./img/blueRacket.png">
-                <p class="card_title"> Blue Racket </p>
-                <input class="card_button" type="button" value="order" onclick="alert(2);">
-            </div>
-            <div class="card">
-                <img class="card_img" src="./img/blackRacket.png">
-                <p class="card_title"> Black Racket </p>
-                <input class="card_button" type="button" value="order" onclick="alert(3);">
-            </div>
-        </div>
-    </body>
+        /* 상품 그리드 컨테이너 */
+        .card-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 개별 상품 카드 */
+        .card {
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card_img {
+            width: 300px;
+            height: 300px;
+            object-fit: contain; /* 이미지 비율 유지 */
+            border-radius: 4px;
+        }
+
+        .card_title {
+            font-size: 22px;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+
+        .card_button {
+            font-size: 18px;
+            width: 150px;
+            height: 40px;
+            cursor: pointer; /* 마우스 커서 변경 */
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .card_button:hover {
+            background-color: #34495e;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Tennis Market</h1>
+
+<div id="txt_welcome">
+    Welcome to Tennis market! <br>
+    Enjoy your shopping.
+    <br><br>
+    <a href="./orderlist">order list</a>
+</div>
+
+<!-- 인라인 스타일을 클래스로 분리 -->
+<div class="card-container">
+    <div class="card">
+        <img class="card_img" src="./img/redRacket.png" alt="Red Racket">
+        <p class="card_title">Red Racket</p>
+        <input class="card_button" type="button" value="order"
+               onclick="location.href='/order?productId=1'">
+    </div>
+
+    <div class="card">
+        <img class="card_img" src="./img/blueRacket.png" alt="Blue Racket">
+        <p class="card_title">Blue Racket</p>
+        <input class="card_button" type="button" value="order" onclick="alert(2);">
+    </div>
+
+    <div class="card">
+        <img class="card_img" src="./img/blackRacket.png" alt="Black Racket">
+        <p class="card_title">Black Racket</p>
+        <input class="card_button" type="button" value="order" onclick="alert(3);">
+    </div>
+</div>
+
+</body>
 </html>
